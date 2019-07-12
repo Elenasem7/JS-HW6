@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script>
+        // удалить из строки повторяющиеся символы
+       
+        var first = '12341561172181119999';
+        let firstNew = first.split('');
+        first = firstNew.reduce(function (acc, curr) {
+            if (acc.indexOf(curr) === -1) {
+                acc += curr;
+            }
+            return acc;
+        }, '');
+        console.log(first);
+     
+
+
+
+
+        // количество слов в строке
+
+        // 1 СПОСОБ
+        var second = 'Hi, i am learning javascript';
+        let count = 1;
+        for (let i = 1; i < second.length; i++) {
+            if (second[i] === ' ')
+                count++;
+        }
+        console.log(count)
+
+
+
+        // 2 СПОСОБ
+        var second = 'Hi, i am learning javascript';
+        function wordCount(second) {
+            return second.split(" ").length;
+        }
+        console.log(wordCount(second));
+
+
+
+        // 3 СПОСОБ
+        // Если в строке подряд идет несколько пробелов, то количество слов посчитается неправильно. 
+        // Поэтому самый надежный способ, если пробел заменить на редко используемый символ
+        var second = 'Hi,   i  am learning   javascript';
+        second = second.replace(/\s+/g, '^^^')
+        function wordCount(second) {
+            return second.split("^^^").length;
+        }
+        console.log(wordCount(second));
+
+
+
+
+
+
+
+        // самое длинное слово в строке
+
+        // Длинная запись
+        var third = 'Hi, i am learning javascript';
+        var strThird = third.split(' ');
+        var longestWord = strThird.reduce(function (longest, current) {
+            if (longest.length < current.length)
+                return current;
+            else
+                return longest;
+        }, '');
+
+        console.log(longestWord);
+
+
+
+        // Сокращенная запись
+        function third(str) {
+            var longestWord = str.split(' ').reduce(function (longest, current) {
+                return longest.length < current.length ? current : longest;
+            }, ' ');
+            return longestWord;
+        }
+        third('Hi, i am learning javascript');
+
+
+
+
+
+
+
+
+        // удалить пробелы в строке
+        var fourth = 'Hi, i am learning javascript';
+        fourth = fourth.replace(/\s+/g, '')
+
+
+
+
+
+        // заменить пробелы на зяпятые
+        var fifth = 'Hi, i am learning javascript';
+        fifth = fifth.replace(/\s+/g, ',')
+
+
+
+
+        // Отфильтровать массив таким образом чтобы числа были не меньше 20 используя фильтр!
+        var sixth = [3, 42, 234, 5, 3, 21, 53];
+        var sixthNew = sixth.filter(function (number) {
+            return number >= 20;
+        });
+        console.log(sixthNew);
+
+
+
+
+
+        // Вернуть новый массив из строк добавив слово месяц к элементу если число больше 20 используя map
+        // [3, '42 месяца', '23 месяца', 5, 3, '21 месяца', '53 месяца']
+        var seventh = [3, 42, 23, 5, 3, 21, 53];
+        const seventhNew = seventh.map((arg) => {
+            if (arg > 20) {
+                arg = arg + ' месяца'
+            }
+            return arg;
+        });
+        seventhNew
+
+
+
+
+
+
+
+        // используя reduce просуммировать элементы которые больше 3
+        var eight = [3, 42, 23, 5, 3, 21, 53];
+        var summ = 0;
+        var eightNew = eight.reduce(function (acc, current) {
+            if (current > 3) {
+                return summ += current;
+            }
+        }, '');
+        console.log(summ);
+
+
+    </script>
+</body>
+
+</html>
